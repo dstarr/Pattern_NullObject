@@ -27,7 +27,12 @@ namespace NullObject.Services
 
             internal ILearner GetLearner(int id)
             {
-                return _learners.First(l => l.Id == id);
+                bool learnerExists = _learners.Any(l => l.Id == id);
+
+                if (learnerExists)
+                    return _learners.FirstOrDefault(l => l.Id == id);
+
+                return new NullLearner();
             }
         }
         
