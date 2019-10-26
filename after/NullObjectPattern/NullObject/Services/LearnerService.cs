@@ -1,0 +1,35 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using NullObject.Entities;
+
+namespace NullObject.Services
+{
+    public class LearnerService
+    {
+        readonly LearnerRepo _repo = new LearnerRepo();
+        
+        public ILearner GetLearner(int id)
+        {
+            return _repo.GetLearner(id); 
+        }
+
+        class LearnerRepo
+        {
+            readonly IList<Learner> _learners = new List<Learner>();
+
+            internal LearnerRepo()
+            {
+                _learners.Add(new Learner(1, "David", 83));
+                _learners.Add(new Learner(2, "Julie", 72));
+                _learners.Add(new Learner(3, "Scott", 92));
+            }
+
+            internal ILearner GetLearner(int id)
+            {
+                return _learners.First(l => l.Id == id);
+            }
+        }
+        
+    }
+}

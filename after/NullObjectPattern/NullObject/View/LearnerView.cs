@@ -5,11 +5,12 @@ namespace NullObject.View
 {
     public class LearnerView
     {
-        private readonly Learner _learner;
+        private readonly ILearner _learner;
 
-        public LearnerView(Learner learner)
+        public LearnerView(ILearner learner)
         {
             if (learner == null) throw new ArgumentNullException(nameof(learner));
+            if (learner.UserName == null) throw new ArgumentNullException(nameof(learner.UserName));
             
             _learner = learner;
         }

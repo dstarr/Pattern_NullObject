@@ -1,11 +1,20 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace NullObject.Entities
 {
-    public class Learner
-    { 
-        public int Id { get; }
+    public class Learner : ILearner
+    {
+        public Learner(int id, string userName, int coursesCompleted)
+        {
+            Id = id;
+            UserName = userName;
+            CoursesCompleted = coursesCompleted;
+        }
 
-        public string UserName { get;  }
+        public int Id { get; private set; }
 
-        public int CoursesCompleted { get; }
+        public string UserName { get; private set; }
+
+        public int CoursesCompleted { get; private set; }
     }
 }
