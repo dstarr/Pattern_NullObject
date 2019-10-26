@@ -9,9 +9,6 @@ namespace NullObject.View
 
         public LearnerView(ILearner learner)
         {
-            if (learner == null) throw new ArgumentNullException(nameof(learner));
-            if (learner.UserName == null) throw new ArgumentNullException(nameof(learner.UserName));
-            
             _learner = learner;
         }
 
