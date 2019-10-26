@@ -32,7 +32,7 @@ namespace NullObject.Services
                 if (learnerExists)
                     return _learners.FirstOrDefault(l => l.Id == id);
 
-                return new NullLearner();
+                return null;
             }
         }
         
