@@ -9,9 +9,14 @@ namespace NullObject.Services
     {
         readonly LearnerRepo _repo = new LearnerRepo();
         
-        public ILearner GetLearner(int id)
+        public ILearner GetCurrentLearner()
         {
-            return _repo.GetLearner(id); 
+            // go get the Learner's id from a JWT token cookie
+            // or by some other appropriate means
+            
+            int learnerId = 0;
+
+            return _repo.GetLearner(learnerId); 
         }
 
         class LearnerRepo
